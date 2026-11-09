@@ -1,0 +1,38 @@
+{
+  "canvas": { "padding": 30 },
+  "style": { "font_size": 22, "bond_px": 44 },
+  "items": [
+    {
+      "type": "row",
+      "gap": 24,
+      "align": "center",
+      "items": [
+        { "type": "molecule", "smiles": "CC(=O)O", "caption": "1" },
+        { "type": "arrow", "above": "NH3", "below": "\u0394" },
+        { "type": "molecule", "smiles": "CC(=O)N", "caption": "2" }
+      ]
+    },
+    {
+      "type": "row",
+      "gap": 24,
+      "align": "center",
+      "items": [
+        { "type": "molecule", "smiles": "c1ccccc1" },
+        { "type": "arrow", "above": "HNO3", "below": "H2SO4" },
+        { "type": "molecule", "smiles": "[O-][N+](=O)c1ccccc1" },
+        { "type": "arrow", "above": "H2, Pd" },
+        { "type": "molecule", "smiles": "Nc1ccccc1" }
+      ]
+    },
+    {
+      "type": "row",
+      "gap": 28,
+      "align": "center",
+      "items": [
+        { "type": "molecule", "smiles": "CCO", "mode": "lewis", "caption": "ethanol" },
+        { "type": "text", "content": "= C2H6O =", "size": 20 },
+        { "type": "molecule", "smiles": "COC", "mode": "lewis", "caption": "dimethyl ether" }
+      ]
+    }
+  ]
+}

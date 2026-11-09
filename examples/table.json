@@ -1,0 +1,41 @@
+{
+  "canvas": { "padding": 26 },
+  "style": { "font_size": 20, "bond_px": 40, "reference": false },
+  "items": [
+    {
+      "type": "table",
+      "gap": 22,
+      "border": true,
+      "rows": [
+        [
+          { "type": "text", "content": "NAME", "size": 15 },
+          { "type": "text", "content": "MOLECULAR", "size": 15 },
+          { "type": "text", "content": "CONDENSED", "size": 15 },
+          { "type": "text", "content": "LEWIS STRUCTURE", "size": 15 },
+          { "type": "text", "content": "LINE STRUCTURE", "size": 15 }
+        ],
+        [
+          { "type": "text", "content": "ETHANOL" },
+          { "type": "text", "content": "C\u2082H\u2086O" },
+          { "type": "text", "content": "CH\u2083CH\u2082OH" },
+          { "type": "molecule", "smiles": "CCO", "mode": "lewis", "bond_px": 34 },
+          { "type": "molecule", "smiles": "CCO", "bond_px": 40 }
+        ],
+        [
+          { "type": "text", "content": "DIMETHYL ETHER" },
+          { "type": "text", "content": "C\u2082H\u2086O" },
+          { "type": "text", "content": "CH\u2083OCH\u2083" },
+          { "type": "molecule", "smiles": "COC", "mode": "lewis", "bond_px": 34 },
+          { "type": "molecule", "smiles": "COC", "bond_px": 40 }
+        ],
+        [
+          { "type": "text", "content": "ISOBUTANOL" },
+          { "type": "text", "content": "C\u2084H\u2081\u2080O" },
+          { "type": "text", "content": "(CH\u2083)\u2082CHCH\u2082OH" },
+          { "type": "molecule", "smiles": "CC(C)CO", "mode": "lewis", "bond_px": 30 },
+          { "type": "molecule", "smiles": "CC(C)CO", "bond_px": 40 }
+        ]
+      ]
+    }
+  ]
+}

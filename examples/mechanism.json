@@ -1,0 +1,72 @@
+{
+  "canvas": { "padding": 24 },
+  "style": { "font_size": 18, "bond_px": 44, "reference": false },
+  "items": [
+    {
+      "type": "panel",
+      "title": "resonance: the negative charge moves to oxygen",
+      "padding": 16,
+      "items": [
+        {
+          "type": "row",
+          "gap": 30,
+          "align": "center",
+          "items": [
+            {
+              "id": "acetate",
+              "type": "molecule",
+              "smiles": "CC(=O)[O-]",
+              "bond_px": 52
+            },
+            {
+              "type": "curved_arrow",
+              "from": { "item": "acetate", "atom": 3 },
+              "to": { "item": "acetate", "atom": 1 },
+              "curve": 0.45,
+              "label": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "panel",
+      "title": "energy profile",
+      "padding": 16,
+      "items": [
+        {
+          "type": "col",
+          "gap": 6,
+          "items": [
+            {
+              "type": "polyline",
+              "w": 420,
+              "h": 150,
+              "smooth": true,
+              "stroke_width": 2.4,
+              "points": [
+                [10, 130], [70, 40], [130, 95], [210, 110],
+                [280, 30], [350, 95], [410, 120]
+              ]
+            },
+            {
+              "type": "line",
+              "w": 420,
+              "h": 24,
+              "x1": 10,
+              "y1": 4,
+              "x2": 410,
+              "y2": 4,
+              "arrow": true
+            },
+            {
+              "type": "text",
+              "content": "reaction coordinate",
+              "size": 15
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

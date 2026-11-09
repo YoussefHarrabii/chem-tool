@@ -1,0 +1,44 @@
+{
+  "canvas": { "padding": 26 },
+  "style": { "font_size": 13, "bond_px": 28, "reference": false },
+  "items": [
+    {
+      "type": "text",
+      "content": "HBr + (cyclobutylidene)ethane: protonation, ring expansion, hydride shift",
+      "size": 15,
+      "align": "center"
+    },
+    {
+      "type": "row",
+      "gap": 10,
+      "align": "center",
+      "items": [
+        { "type": "molecule", "smiles": "CC=C1CCC1", "caption": "C\u2086H\u2081\u2080" },
+        { "type": "arrow", "length": 64, "above": "HBr", "below": "" },
+        { "type": "molecule", "smiles": "C[CH+]C1CCC1",
+          "caption": "2\u00b0 cation, C\u2086H\u2081\u2081\u207a" },
+        { "type": "arrow", "length": 76, "above": "1,2-alkyl shift",
+          "below": "ring expansion" },
+        { "type": "molecule", "smiles": "CC1[CH+]CCC1",
+          "caption": "2\u00b0 cyclopentyl, C\u2086H\u2081\u2081\u207a" },
+        { "type": "arrow", "length": 76, "above": "hydride shift",
+          "below": "1,2-H" },
+        { "type": "molecule", "smiles": "C[C+]1CCCC1",
+          "caption": "3\u00b0 cation, C\u2086H\u2081\u2081\u207a" },
+        { "type": "arrow", "length": 58, "above": "Br\u207b", "below": "" },
+        { "type": "molecule", "smiles": "CC1(Br)CCCC1",
+          "caption": "1-bromo-1-methylcyclopentane, C\u2086H\u2081\u2081Br" }
+      ]
+    },
+    {
+      "type": "text",
+      "content": "balanced: C\u2086H\u2081\u2080 + HBr \u2192 C\u2086H\u2081\u2081Br. The product is achiral, so no wedges apply.",
+      "size": 13
+    },
+    {
+      "type": "text",
+      "content": "the product named in the prompt, 1-bromo-1,2-dimethylcyclopentane, is C\u2087H\u2081\u2083Br and needs a precursor with one more carbon",
+      "size": 13
+    }
+  ]
+}

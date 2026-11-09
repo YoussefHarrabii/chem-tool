@@ -1,0 +1,61 @@
+{
+  "canvas": { "padding": 26 },
+  "style": { "font_size": 16, "bond_px": 50, "reference": false },
+  "items": [
+    {
+      "type": "row",
+      "gap": 40,
+      "align": "top",
+      "items": [
+        {
+          "type": "col",
+          "gap": 6,
+          "items": [
+            { "type": "newman", "smiles": "CCCC", "bond": [1, 2], "dihedral": 180 },
+            { "type": "text", "content": "anti, 180\u00b0", "size": 14 }
+          ]
+        },
+        {
+          "type": "col",
+          "gap": 6,
+          "items": [
+            { "type": "newman", "smiles": "CCCC", "bond": [1, 2], "dihedral": 60 },
+            { "type": "text", "content": "gauche, 60\u00b0", "size": 14 }
+          ]
+        },
+        {
+          "type": "col",
+          "gap": 6,
+          "items": [
+            { "type": "newman", "smiles": "CCCC", "bond": [1, 2], "dihedral": 0 },
+            { "type": "text", "content": "eclipsed, 0\u00b0", "size": 14 }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "row",
+      "gap": 40,
+      "align": "top",
+      "items": [
+        {
+          "type": "col",
+          "gap": 6,
+          "items": [
+            { "type": "fischer", "smiles": "C[C@H](N)C(=O)O", "bond_px": 48 },
+            { "type": "text", "content": "L-alanine", "size": 14 }
+          ]
+        },
+        {
+          "type": "col",
+          "gap": 6,
+          "items": [
+            { "type": "fischer", "smiles": "O=C[C@H](O)[C@@H](O)[C@H](O)[C@H](O)CO",
+              "bond_px": 40 },
+            { "type": "text", "content": "D-glucose", "size": 14 }
+          ]
+        }
+      ]
+    }
+  ]
+}

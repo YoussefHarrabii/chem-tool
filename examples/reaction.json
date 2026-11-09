@@ -1,0 +1,22 @@
+{
+  "canvas": { "padding": 24 },
+  "style": { "font_size": 16, "bond_px": 38, "reference": false },
+  "items": [
+    {
+      "type": "reaction",
+      "above": "H\u2082SO\u2084, \u0394",
+      "below": "Fischer esterification",
+      "reagents": [],
+      "from": ["CC(=O)O", "CCO"],
+      "to": ["CC(=O)OCC", "O"]
+    },
+    {
+      "type": "reaction",
+      "above": "HBr",
+      "below": "with ring expansion",
+      "reagents": ["Br"],
+      "from": ["CC=C1CCC1"],
+      "to": ["CC1(Br)CCCC1"]
+    }
+  ]
+}

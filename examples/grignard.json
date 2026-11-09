@@ -1,0 +1,58 @@
+﻿{
+  "canvas": { "padding": 28 },
+  "style": { "font_size": 15, "bond_px": 32, "reference": true },
+  "items": [
+    {
+      "type": "text",
+      "content": "synthesis of (1R,2R)-2-methylcyclohexanol",
+      "size": 17,
+      "align": "center"
+    },
+    {
+      "type": "row",
+      "gap": 16,
+      "align": "center",
+      "items": [
+        {
+          "type": "molecule",
+          "smiles": "O=C1CCCCC1",
+          "caption": "cyclohexanone"
+        },
+        {
+          "type": "arrow",
+          "length": 150,
+          "above": "CH\u2083MgBr",
+          "below": "then H\u2083O\u207a"
+        },
+        {
+          "type": "molecule",
+          "smiles": "CC1(O)CCCCC1",
+          "caption": "1-methylcyclohexanol"
+        },
+        {
+          "type": "arrow",
+          "length": 120,
+          "above": "H\u2082SO\u2084, \u0394",
+          "below": ""
+        },
+        {
+          "type": "molecule",
+          "smiles": "CC1=CCCCC1",
+          "caption": "1-methylcyclohexene"
+        },
+        {
+          "type": "arrow",
+          "length": 150,
+          "above": "1. BH\u2083\u00b7THF",
+          "below": "2. H\u2082O\u2082, NaOH"
+        },
+        {
+          "type": "molecule",
+          "smiles": "C[C@@H]1CCCC[C@H]1O",
+          "caption": "(1R,2R)-2-methylcyclohexanol (\u00b1 racemate)"
+        }
+      ]
+    }
+  ]
+}
+

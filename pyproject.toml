@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "chemdraft"
+version = "0.1.0"
+description = "Faithful chemistry figures for agents: SMILES in, verified PNG and SVG out."
+requires-python = ">=3.10"
+dependencies = ["rdkit>=2023.9", "pymupdf>=1.23", "pillow>=10"]
+
+[project.scripts]
+chemdraft = "chemdraft.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["chemdraft*"]
