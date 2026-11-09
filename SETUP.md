@@ -1,70 +1,56 @@
 # Giving this to someone else
 
-There are two ways. Pick by whether the repository is public.
+They already have opencode, so the agent installs it. One message to paste, no
+downloads, no double-clicking, no Windows warnings.
 
-## Simplest: public repo, one file, double-click
+**First:** the repository must be public, otherwise the clone asks for a GitHub
+account. One setting, on GitHub: Settings → General → Danger Zone → Change
+visibility → Public. Nothing in this repository is sensitive.
 
-The repository has to be **public** for this, because the installer downloads
-from GitHub without an account.
+**Then send them this, and nothing else:**
 
-Send them this link:
+---
 
-```
-https://github.com/YoussefHarrabii/chem-tool/raw/main/chemdraft-setup.cmd
-```
+Install chemdraft so you can draw chemistry diagrams for me:
 
-They save the file and double-click it. It installs everything and puts the
-skill where opencode finds it. To update later, they double-click the same file
-again; it always fetches the current version.
+1. `git clone https://github.com/YoussefHarrabii/chem-tool.git %USERPROFILE%\Tools\chemdraft`
+   If the clone asks to sign in, tell me and wait for me to finish that.
+2. In that folder run `install.cmd`.
+3. Check it worked:
+   `chemdraft smiles "CCO" -o "%TEMP%\check.png"`
+   It must print JSON containing `"ok": true`.
+4. Tell me the version it printed.
 
-If the file opens in a browser instead of downloading, use right-click →
-Save link as.
+From then on, use the chemdraft skill for every chemistry figure I ask for.
+Update it when I say so with `update.cmd` in the same folder.
 
-## Private repo: send the zip
+---
 
-If the repository stays private, the download needs an account, so do not use
-the one-file installer. Instead:
+That is the whole setup. The agent clones, installs, registers the skill, and
+verifies. If Python is missing, it will say so and can install it.
 
-1. Build the zip (`tools/make_zip.ps1` or zip the folder yourself).
-2. Send it by email, WhatsApp or Drive.
-3. They extract it anywhere and double-click `install.cmd` inside.
+## Updating
 
-Updates are then manual: send a new zip.
+They say "update chemdraft". The agent runs `update.cmd`, which pulls the latest
+version and refreshes the skill. No action from them beyond the message.
 
-They still need Python 3.10 or newer once. `install.cmd` will say so if it is
-missing.
+## Why not a double-click installer
 
-## For developers: git
+A `.cmd` file downloaded from the internet gets flagged by SmartScreen and
+Windows Defender, which is worse for a non-technical person than one paste. Files
+obtained by `git clone` carry no such mark, so `install.cmd` runs cleanly when
+the agent uses it.
 
-If someone will pull updates, clone instead:
+## If the repository must stay private
 
-```
-git clone https://github.com/YoussefHarrabii/chem-tool.git C:\Tools\chemdraft
-cd C:\Tools\chemdraft
-install.cmd
-```
+Then the clone needs a sign-in on first use. Add them under Settings →
+Collaborators, and expect one browser sign-in during step 1. Everything after
+that is identical.
 
-Private repositories need a one-time browser sign-in on first clone, or a
-personal access token. After that `update.cmd` pulls and refreshes the skill.
+## What gets installed
 
-## What each installer does
-
-- installs RDKit, PyMuPDF and Pillow (RDKit is about 35 MB);
-- installs this package in editable mode;
-- copies `skills/chemdraft/SKILL.md` to
+- RDKit, PyMuPDF, Pillow (RDKit is about 35 MB);
+- this package in editable mode, so `git pull` updates it;
+- `skills/chemdraft/SKILL.md` copied to
   `%USERPROFILE%\.config\opencode\skills\chemdraft\`;
-- draws a test molecule and reports whether it worked.
-
-## The prompt for opencode
-
-Once installed, nothing else is needed: the skill is discovered automatically.
-If you want to be explicit, paste this:
-
----
-
-Use the `chemdraft` skill for every chemistry figure. Draw to a PNG under
-`figures/` in the current project, tell me the formula the tool reported and the
-file path, and pass on any warnings it returns. If the tool refuses, say so and
-explain what it said; do not describe a figure that was not written.
-
----
+- a test figure written to `%TEMP%`.
