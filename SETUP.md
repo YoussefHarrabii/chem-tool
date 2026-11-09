@@ -19,7 +19,10 @@ Install chemdraft so you can draw chemistry diagrams for me:
 3. Check it worked:
    `chemdraft smiles "CCO" -o "%TEMP%\check.png"`
    It must print JSON containing `"ok": true`.
-4. Tell me the version it printed.
+```
+4. Tell me the version it printed, then tell me to start a new chat so the
+   skill is picked up.
+```
 
 From then on, use the chemdraft skill for every chemistry figure I ask for.
 Update it when I say so with `update.cmd` in the same folder.
@@ -28,6 +31,13 @@ Update it when I say so with `update.cmd` in the same folder.
 
 That is the whole setup. The agent clones, installs, registers the skill, and
 verifies. If Python is missing, it will say so and can install it.
+
+Three things to expect on their side:
+
+- They paste that into the **opencode chat**, not a terminal window.
+- opencode may ask permission to run commands. Allow it, once.
+- **A skill loads when a session starts**, so the install only takes effect in a
+  new chat. That is why step 4 says to start one.
 
 ## Updating
 
