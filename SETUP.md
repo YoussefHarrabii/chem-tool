@@ -1,56 +1,42 @@
-# Setup prompt
+# Giving this to someone else
 
-Paste this into opencode on a fresh machine. The agent does the install; you do
-the sign-in if the repository is private.
+There are two ways. Pick by whether the repository is public.
 
----
+## Simplest: public repo, one file, double-click
 
-Set up and use the **chemdraft** chemistry drawing tool.
+The repository has to be **public** for this, because the installer downloads
+from GitHub without an account.
 
-Repository: `https://github.com/YoussefHarrabii/chem-tool`
+Send them this link:
 
-1. Check `git` and `python` are on PATH, and that Python is 3.10 or newer. If
-   either is missing, tell me exactly what to install and stop.
-2. Clone the repository to `%USERPROFILE%\Tools\chemdraft` if it is not there
-   already. If the clone asks for credentials, tell me to finish the GitHub
-   sign-in in the browser window, then continue.
-3. Run `install.cmd` from that folder. On macOS or Linux, run
-   `python -m pip install -e .` and copy `skills/chemdraft/SKILL.md` to
-   `~/.config/opencode/skills/chemdraft/SKILL.md`.
-4. Verify with:
-   `chemdraft smiles "CCO" -o "%TEMP%\chemdraft-check.png"`
-   It must print JSON containing `"ok": true`. If it does not, show me the error
-   and stop.
-5. Read `skills/chemdraft/SKILL.md` and follow it for every chemistry figure from
-   now on.
+```
+https://github.com/YoussefHarrabii/chem-tool/raw/main/chemdraft-setup.cmd
+```
 
-From then on, whenever I ask for a molecule, a structure, a reaction or a
-mechanism:
+They save the file and double-click it. It installs everything and puts the
+skill where opencode finds it. To update later, they double-click the same file
+again; it always fetches the current version.
 
-- produce a PNG with `chemdraft`, saved under `figures/` in the current project
-  with a descriptive kebab-case name;
-- tell me the formula it reported and the file path;
-- pass on any warnings or `caveats` the tool returned;
-- if the tool refuses, say so and explain what it said. Do not describe a figure
-  that was not written, and do not retype a SMILES until a check passes.
+If the file opens in a browser instead of downloading, use right-click →
+Save link as.
 
-To update later: run `update.cmd` in the same folder.
+## Private repo: send the zip
 
----
+If the repository stays private, the download needs an account, so do not use
+the one-file installer. Instead:
 
-## If you want it private
+1. Build the zip (`tools/make_zip.ps1` or zip the folder yourself).
+2. Send it by email, WhatsApp or Drive.
+3. They extract it anywhere and double-click `install.cmd` inside.
 
-The repository can be private. Then:
+Updates are then manual: send a new zip.
 
-- add each person under **Settings → Collaborators**;
-- the first clone opens a browser sign-in, once per machine;
-- if the sign-in does not appear, either install **GitHub Desktop** and clone
-  through it, or create a personal access token (Settings → Developer settings →
-  Tokens) and use it as the password when git asks.
+They still need Python 3.10 or newer once. `install.cmd` will say so if it is
+missing.
 
-An agent cannot complete that sign-in for you, because it needs your account.
+## For developers: git
 
-## Manual fallback
+If someone will pull updates, clone instead:
 
 ```
 git clone https://github.com/YoussefHarrabii/chem-tool.git C:\Tools\chemdraft
@@ -58,8 +44,27 @@ cd C:\Tools\chemdraft
 install.cmd
 ```
 
-`install.cmd` installs RDKit, PyMuPDF and Pillow, installs the package in
-editable mode, and copies the skill to
-`%USERPROFILE%\.config\opencode\skills\chemdraft\`. Because the install is
-editable, `git pull` updates the code; `update.cmd` also refreshes the skill
-copy.
+Private repositories need a one-time browser sign-in on first clone, or a
+personal access token. After that `update.cmd` pulls and refreshes the skill.
+
+## What each installer does
+
+- installs RDKit, PyMuPDF and Pillow (RDKit is about 35 MB);
+- installs this package in editable mode;
+- copies `skills/chemdraft/SKILL.md` to
+  `%USERPROFILE%\.config\opencode\skills\chemdraft\`;
+- draws a test molecule and reports whether it worked.
+
+## The prompt for opencode
+
+Once installed, nothing else is needed: the skill is discovered automatically.
+If you want to be explicit, paste this:
+
+---
+
+Use the `chemdraft` skill for every chemistry figure. Draw to a PNG under
+`figures/` in the current project, tell me the formula the tool reported and the
+file path, and pass on any warnings it returns. If the tool refuses, say so and
+explain what it said; do not describe a figure that was not written.
+
+---
