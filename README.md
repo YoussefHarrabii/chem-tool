@@ -16,9 +16,33 @@ written at all.
 
 ## Install
 
+Once, on the machine that will use it:
+
 ```
-pip install -e .
+git clone <repo-url> C:\Tools\chemdraft
+cd C:\Tools\chemdraft
+install.cmd
 ```
+
+`install.cmd` installs the dependencies (RDKit is about 35 MB), installs the
+package in editable mode, and copies the skill to
+`%USERPROFILE%\.config\opencode\skills\chemdraft\`. Pass a vault path to also put
+the skill inside that project:
+
+```
+install.cmd C:\Users\you\Documents\StudyBrain
+```
+
+## Updating
+
+```
+update.cmd
+```
+
+That pulls, reinstalls if dependencies changed, and refreshes the skill copies.
+Because the package is installed in editable mode, a pull alone updates the
+code; the skill copy is the only thing that has to be refreshed, which is why
+`update.cmd` exists rather than telling you to run `git pull`.
 
 Python 3.10+, RDKit, PyMuPDF, Pillow. No TeX, no headless browser, no server.
 
